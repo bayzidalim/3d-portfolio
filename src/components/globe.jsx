@@ -12,7 +12,7 @@ const GLOBE_CONFIG = {
   width: 800,
   height: 800,
   onRender: () => {},
-  devicePixelRatio: 2,
+  devicePixelRatio: typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 2) : 2,
   phi: 0,
   theta: 0.3,
   dark: 1,

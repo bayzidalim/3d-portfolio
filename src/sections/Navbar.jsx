@@ -98,7 +98,7 @@ const Navbar = () => {
           transition={{ duration: 1 }}
         >
           <nav className="pb-5">
-            <Navigation onNavClick={handleNavClick} />
+            <Navigation onNavClick={() => setIsOpen(false)} />
           </nav>
         </motion.div>
       )}

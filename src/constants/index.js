@@ -221,6 +221,70 @@ export const myProjects = [
       },
     ],
   },
+  {
+    id: 7,
+    title: "RapidCare",
+    description:
+      "A comprehensive medical resources solution connecting patients with healthcare providers.",
+    subDescription: [
+      "Facilitates rapid access to ambulance services and emergency care.",
+      "Connects patients with doctors and hospitals seamlessly.",
+      "Provides a user-friendly interface for managing medical requests.",
+      "Built with React and TailwindCSS for a responsive experience.",
+    ],
+    href: "https://rapidcare.vercel.app/",
+    logo: "/assets/logos/react.svg",
+    image: "/assets/projects/project1.png",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+       {
+        id: 3,
+        name: "Vite",
+        path: "/assets/logos/vitejs.svg",
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "MindLit",
+    description:
+      "An AI-powered book summarizer helping users get insights quickly.",
+    subDescription: [
+      "Leverages AI to generate concise book summaries instantly.",
+      "Helps users save time by providing key insights from lengthy texts.",
+      "Features a clean and modern UI for optimal readability.",
+      "Integrated with AI APIs for accurate and context-aware summaries.",
+    ],
+    href: "https://mindlit.vercel.app/",
+    logo: "/assets/logos/react.svg",
+    image: "/assets/projects/project2.png",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 3,
+        name: "Vite",
+        path: "/assets/logos/vitejs.svg",
+      },
+    ],
+  },
 ];
 
 export const mySocials = [

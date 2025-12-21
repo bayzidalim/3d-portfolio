@@ -1,117 +1,140 @@
-# 🚀 3D Developer Portfolio
+# 🚀 Bayzid Alim | Full Stack Web Developer Portfolio
 
-A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects — designed to help you stand out and showcase your skills creatively.
+Welcome to my 3D animated portfolio! This project is a modern, responsive, and interactive showcase of my skills, projects, and experience, built with **React**, **Three.js**, and **Tailwind CSS**.
 
-![3d Portfolio Screenshot GitHub](https://github.com/user-attachments/assets/9b0ed20e-074e-4f2a-81d8-20c9da751e9e)
+## 👨‍💻 About Me
 
----
+**Full-Stack Web Developer** with hands-on experience building production-ready, scalable web platforms from end to end. Skilled in designing robust backend architectures, secure authentication systems, RESTful APIs, and data-driven applications, alongside modern frontend interfaces.
 
-## 📚 Table of Contents
+*   **Location:** South Goran, Dhaka, Bangladesh
+*   **Email:** bayzidalim@gmail.com
+*   **LinkedIn:** [linkedin.com/in/bayzidalim](https://linkedin.com/in/bayzidalim)
+*   **Portfolio:** [bayzidalim.com](https://bayzidalim.com)
 
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Assets](#-assets)
-- [Contact Me](#-contact-me)
-- [Suggestions or Feedback](#-suggestions-or-feedback)
-- [Like This Project?](#-like-this-project)
+## � Technical Skills
 
----
+### Frontend
+*   **Languages & Frameworks:** JavaScript/TypeScript, React.js, Next.js
+*   **Styling:** Tailwind CSS, shadcn/ui, daisyUI
+*   **Focus:** Responsive & Accessible UI Development, Dynamic Animations
 
-## ✨ Features
+### Backend
+*   **Runtime & Frameworks:** Node.js, Express.js
+*   **Architecture:** RESTful API Design, Role-Based Systems (Admin/User/Provider)
+*   **Security:** Authentication & Authorization (JWT, RBAC), Secure API Design
 
-- 🔥 3D visuals powered by **React Three Fiber** and **Drei**
-- ⚡ Smooth transitions and scroll-based animations using **Framer Motion**
-- 🎨 Clean, responsive UI with **TailwindCSS**
-- 💌 Working contact form using **EmailJS**
-- 🧱 Beautiful UI enhancements with **Aceternity UI** and **Magic UI**
-- 🚀 Lightning-fast development with **Vite**
+### Databases & Cloud
+*   **Databases:** MongoDB, SQLite, PostgreSQL
+*   **Concepts:** Data Modeling & Query Optimization
+*   **Deployment:** Vercel, Render, Railway, Git & GitHub
 
----
-
-## 🛠 Tech Stack
-
-| Tech              | Description                           |
-|-------------------|---------------------------------------|
-| React             | Front-end JavaScript library          |
-| Vite              | Fast bundler and dev environment      |
-| TailwindCSS       | Utility-first CSS framework           |
-| React Three Fiber | 3D rendering with Three.js in React   |
-| Drei              | Helpers and abstractions for R3F      |
-| Framer Motion     | Animation library for React           |
-| EmailJS           | Form handling and email integration   |
-| Aceternity UI     | Custom UI components                  |
-| Magic UI          | Prebuilt UI elements and design extras|
+### AI & Integrations
+*   Google Gemini API Integration
+*   Third-party API Integrations
+*   Payment Gateway Integrations
 
 ---
 
-## 📁 Project Structure
+## 📂 Featured Projects
 
-```bash
-├── public/
-│   ├── assets/             # Images, textures, models
-│   ├── models/             # 3D Astronaut model
-│   └── vite.svg
-├── src/
-│   ├── components/         # Reusable components
-│   ├── constants/          # Reusable datas
-│   ├── sections/           # Portfolio sections (Hero, About, etc.)
-│   ├── App.jsx             # Main app file
-│   ├── index.css           # Tailwind css
-│   └── main.jsx            # Entry point
-├── tailwind.config.js
-└── vite.config.js
-```
+### � [RapidCare](https://rapidcare.vercel.app)
+**Real-time emergency medical resource booking system**
+*   Hospital, ICU, and resource coordination with live availability updates.
+*   Implemented secure booking workflows, payment integration, and role-based access control.
+*   **Tech:** React, Node.js, Express, MongoDB.
 
----
+### � [We Bhuiyans](https://webhuiyans.com)
+**Long-term family archive with interactive family tree**
+*   Canvas-based rendering for complex lineage visualization.
+*   Secure authentication via Supabase and media optimization with Cloudinary.
+*   **Tech:** React, Supabase, Cloudinary.
 
-## 🚀 Getting Started
-1. Clone the Repository
-```bash
-git clone https://github.com/Ali-Sanati/Portfolio.git
-cd Portfolio
-```
-2. Install Dependencies
-```bash
-npm install
-```
-3. Run the Development Server
-```bash
-npm run dev
-```
-The app will be available at http://localhost:5173.
+### 🤖 [MediCore AI](https://github.com/bayzidalim/medicore-ai)
+**AI-driven doctor recommendation and appointment platform**
+*   AI-powered recommendations based on patient symptoms.
+*   Secure authentication and real-time appointment booking workflows.
+*   **Tech:** React, Node.js, AI Integration.
 
----
+### 📋 [Kanban Board](https://kanban-project-wine.vercel.app)
+**Productivity-focused task management tool**
+*   Drag-and-drop workflow with columns for status tracking.
+*   Responsive and intuitive UI for team productivity.
+*   **Tech:** React, DnD Kit, Tailwind CSS.
 
-## 🔗 Assets
-Assets used in the project can be found [here](https://github.com/user-attachments/files/19820923/public.zip)
+### 📚 [MindLit](https://mindlit.vercel.app)
+**AI-powered educational content generator**
+*   Generates summaries, lessons, and flashcards from books using Google Gemini API.
+*   Maintains persistent user history and progress tracking.
+*   **Tech:** React, Gemini API, Tailwind CSS.
 
----
+### 💼 [Freelancing Marketplace](https://solophere-4f170.web.app)
+**Platform connecting businesses with independent professionals**
+*   Features job listings, freelancer profiles, bidding systems, and direct hiring.
+*   **Tech:** React, Tailwind CSS, daisyUI, Node.js, Express.
 
-## 📬 Contact Me
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/ali.sanatidev/reels/) 
-[![Static Badge](https://img.shields.io/badge/Youtube-%23FF0033?style=flat&logo=youtube)](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-sanati/) 
+### 🩺 [Doctors Appointment Portal](https://doctors-portal-254e6.web.app)
+**Role-based medical scheduling platform**
+*   Real-time availability, profile management, and secure JWT authentication.
+*   **Tech:** React, Tailwind CSS, Node.js, Express.
 
 ---
 
-## 💡 Suggestions or Feedback?
-Leave a comment on the [YouTube video](https://youtu.be/S9UQItTpwUQ) or open an issue here on GitHub.<br/>
-👉 What should I build next?
+## � Experience & Leadership
 
-- A beautiful Landing Page
+### Full Stack Web Developer
+**Freelance & Personal Projects** | *2019 - Present*
+*   Building scalable web platforms and secure authentication systems.
+*   Developing AI-powered and role-based applications.
 
-- A complete E-commerce site
-
-- A fun App Clone (YouTube, Netflix, etc.)
-
-Or another interactive Portfolio
-
-Let me know!
+### General Secretary
+**NMUC CSE Club** | *Jan 2023 - Jan 2024*
+*   Led technical seminars, bootcamps, and programming competitions.
+*   Managed event planning and speaker coordination for the CSE community.
 
 ---
 
-## ⭐ Like This Project?
-Star the repo and [subscribe](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA??sub_confirmation=1) to the YouTube channel for more dev content!
-# 3d-portfolio
+## 🎓 Education
+
+**Bachelor of Computer Science and Engineering**
+*New Model University College (Affiliated with National University)*
+*   **GPA:** 3.35/4.0
+*   *Dec 2019 - Nov 2025*
+
+---
+
+## 📄 Publications
+
+**RapidCare: A Real-Time Emergency Medical Resource Booking and Coordination System**
+*Published Dec 2025 on Zenodo*
+*   Undergraduate thesis describing the end-to-end development of the RapidCare platform.
+*   [Read Publication](https://zenodo.org/records/17996583)
+
+---
+
+## 🚀 Running the Portfolio Locally
+
+If you'd like to check out the code for this portfolio website:
+
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/bayzidalim/portfolio.git
+    cd portfolio
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+
+## � Contact
+
+Feel free to reach out for collaborations or opportunities!
+
+*   **Email:** [bayzidalim@gmail.com](mailto:bayzidalim@gmail.com)
+*   **LinkedIn:** [Bayzid Alim](https://linkedin.com/in/bayzidalim)
+*   **Web:** [bayzidalim.com](https://bayzidalim.com)

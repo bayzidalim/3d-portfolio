@@ -28,7 +28,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            A Front-End Developer <br /> Passionate About Crafting
+            A Full Stack Web Developer <br /> Passionate About Crafting
           </motion.p>
           <motion.div
             variants={variants}

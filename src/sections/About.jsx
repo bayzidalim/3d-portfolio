@@ -20,7 +20,7 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I&apos;m Bayzid Alim</p>
             <p className="subtext">
-              Proficient front-end developer with core experience in designing and implementing responsive, user-friendly web interfaces. Skilled in React.js, Tailwind CSS, and Bootstrap, ensuring seamless user experiences.
+              Full-Stack Web Developer with hands-on experience building production-ready, scalable web platforms. Skilled in designing robust backend architectures and modern frontend interfaces.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
@@ -32,7 +32,7 @@ const About = () => {
             className="flex items-center justify-center w-full h-full"
           >
             <p className="flex items-end text-5xl text-gray-500">
-              DESIGN IS EVERYTHING
+              BUILD WITH PASSION
             </p>
             <Card
               style={{ rotate: "75deg", top: "30%", left: "20%" }}
@@ -46,32 +46,32 @@ const About = () => {
             />
             <Card
               style={{ rotate: "90deg", bottom: "30%", left: "70%" }}
-              text="Responsive Design"
+              text="Next.js"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "55%", left: "0%" }}
-              text="Bootstrap"
+              text="Express.js"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "20deg", top: "10%", left: "38%" }}
-              text="JavaScript"
+              text="Node.js"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "30deg", top: "70%", left: "70%" }}
-              image="assets/logos/csharp-pink.png"
+              image="assets/logos/react.svg"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/dotnet-pink.png"
+              image="assets/logos/nodejs.png"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/blazor-pink.png"
+              image="assets/logos/nextjs.png"
               containerRef={grid2Container}
             />
           </div>
@@ -102,7 +102,7 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headText">Tech Stack</p>
             <p className="subtext">
-              I specialize in React.js, Tailwind CSS, Bootstrap, HTML, CSS, and JavaScript to build dynamic, scalable, and visually appealing web applications
+              I specialize in React.js, Next.js, Tailwind CSS, Node.js, Express, and modern databases to build dynamic, scalable applications.
             </p>
           </div>
           <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">

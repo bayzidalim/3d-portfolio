@@ -59,6 +59,17 @@ function Navigation({ onNavClick }) {
           Contact
         </a>
       </li>
+      <li className="nav-li">
+        <a
+          className="nav-link bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition-all text-white font-medium flex items-center gap-2"
+          href="/Resume/My%20Resume%202.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume
+          <img src="assets/arrow-up.svg" className="w-3 h-3 rotate-45" alt="arrow" />
+        </a>
+      </li>
     </ul>
   );
 }

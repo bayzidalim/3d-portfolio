@@ -92,3 +92,7 @@ coverage/
 tmp/
 temp/
 graphify-out/
+
+.agents
+.codex
+.antigravity

@@ -1,0 +1,5 @@
+# Graphify Instructions
+You have access to the `graphify` tool via its CLI or MCP server (if configured). When answering questions about the codebase structure, discovering knowledge, or finding relationships, use the `graphify` tools (like `query_graph`, `get_node`, etc.) to query the `graphify-out/graph.json` generated for this project.
+
+This ensures you save context tokens instead of reading large or numerous files. 
+Do not read the entire codebase manually unless specifically required to perform edits that graphify cannot facilitate.

@@ -91,3 +91,4 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+graphify-out/

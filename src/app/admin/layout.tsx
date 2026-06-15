@@ -7,10 +7,10 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 // ─── Tab config for mobile nav ──────────────────────────
 const tabGlassActive: Record<string, string> = {
-  projects: "bg-blue-500/20 text-blue-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  experiences: "bg-purple-500/20 text-purple-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  reviews: "bg-amber-500/20 text-amber-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  socials: "bg-green-500/20 text-green-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  projects: "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-200 border border-blue-200 dark:border-white/10 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  experiences: "bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-200 border border-purple-200 dark:border-white/10 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  reviews: "bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-200 border border-amber-200 dark:border-white/10 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  socials: "bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-200 border border-green-200 dark:border-white/10 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
 };
 
 const portfolioTabs = ["projects", "experiences", "reviews", "socials"] as const;

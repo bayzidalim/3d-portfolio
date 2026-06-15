@@ -34,11 +34,11 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#030412] relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-[#030412] relative overflow-hidden transition-colors duration-300">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 dark:bg-blue-600/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 dark:bg-purple-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
 
       <div className="relative z-10 w-full max-w-md mx-4">
@@ -49,12 +49,12 @@ export default function AdminLogin() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Welcome Back</h1>
-          <p className="text-gray-400 mt-2 text-sm">Sign in to manage your portfolio</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Welcome Back</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm">Sign in to manage your portfolio</p>
         </div>
 
         {/* Card */}
-        <div className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 shadow-2xl">
+        <div className="backdrop-blur-xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-2xl p-8 shadow-2xl">
           {error && (
             <div className="mb-6 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center flex items-center gap-2 justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -66,24 +66,24 @@ export default function AdminLogin() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-gray-300 text-sm font-medium mb-2">Email Address</label>
+              <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">Email Address</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@example.com"
-                className="w-full px-4 py-3 bg-white/[0.04] text-white rounded-xl border border-white/[0.08] focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/25 transition-all duration-300 placeholder-gray-600 text-sm"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-white/[0.04] text-gray-900 dark:text-white rounded-xl border border-gray-200 dark:border-white/[0.08] focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/25 transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-600 text-sm"
                 required
               />
             </div>
             <div>
-              <label className="block text-gray-300 text-sm font-medium mb-2">Password</label>
+              <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••"
-                className="w-full px-4 py-3 bg-white/[0.04] text-white rounded-xl border border-white/[0.08] focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/25 transition-all duration-300 placeholder-gray-600 text-sm"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-white/[0.04] text-gray-900 dark:text-white rounded-xl border border-gray-200 dark:border-white/[0.08] focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/25 transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-600 text-sm"
                 required
               />
             </div>

@@ -32,17 +32,17 @@ const tabIcons: Record<string, React.ReactNode> = {
 };
 
 const tabGlassActive: Record<string, string> = {
-  projects: "bg-blue-500/20 text-blue-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  experiences: "bg-purple-500/20 text-purple-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  reviews: "bg-amber-500/20 text-amber-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  socials: "bg-green-500/20 text-green-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  projects: "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-200 border border-blue-200 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  experiences: "bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-200 border border-purple-200 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  reviews: "bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-200 border border-amber-200 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  socials: "bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-200 border border-green-200 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
 };
 
 const tabGlassHover: Record<string, string> = {
-  projects: "hover:bg-blue-500/30 hover:border-white/20",
-  experiences: "hover:bg-purple-500/30 hover:border-white/20",
-  reviews: "hover:bg-amber-500/30 hover:border-white/20",
-  socials: "hover:bg-green-500/30 hover:border-white/20",
+  projects: "hover:bg-blue-100 dark:hover:bg-blue-500/30 hover:border-blue-300 dark:hover:border-white/20",
+  experiences: "hover:bg-purple-100 dark:hover:bg-purple-500/30 hover:border-purple-300 dark:hover:border-white/20",
+  reviews: "hover:bg-amber-100 dark:hover:bg-amber-500/30 hover:border-amber-300 dark:hover:border-white/20",
+  socials: "hover:bg-green-100 dark:hover:bg-green-500/30 hover:border-green-300 dark:hover:border-white/20",
 };
 
 const tabBorderColors: Record<string, string> = {
@@ -125,7 +125,7 @@ function PortfolioContent() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold capitalize">{activeTab}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold capitalize text-gray-900 dark:text-white">{activeTab}</h1>
           <p className="text-gray-500 text-sm mt-1">
             {currentItems.length} {currentItems.length === 1 ? "item" : "items"} total
           </p>
@@ -158,7 +158,7 @@ function PortfolioContent() {
       {loading ? (
         <div className="grid gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-24 rounded-xl bg-white/[0.02] animate-pulse border border-white/[0.04]" />
+            <div key={i} className="h-24 rounded-xl bg-gray-50 dark:bg-white/[0.02] animate-pulse border border-gray-200 dark:border-white/[0.04]" />
           ))}
         </div>
       ) : currentItems.length === 0 ? (
@@ -194,7 +194,7 @@ export default function PortfolioPage() {
     <Suspense fallback={
       <div className="grid gap-4">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="h-24 rounded-xl bg-white/[0.02] animate-pulse border border-white/[0.04]" />
+          <div key={i} className="h-24 rounded-xl bg-gray-50 dark:bg-white/[0.02] animate-pulse border border-gray-200 dark:border-white/[0.04]" />
         ))}
       </div>
     }>
@@ -280,31 +280,31 @@ function AdminItem({
   // Editing view
   if (isEditing) {
     return (
-      <div className={`rounded-xl border ${borderColor} bg-white/[0.02] overflow-hidden`}>
-        <div className="p-4 border-b border-white/[0.06] flex items-center justify-between">
+      <div className={`rounded-xl border ${borderColor} bg-gray-50 dark:bg-white/[0.02] overflow-hidden`}>
+        <div className="p-4 border-b border-gray-200 dark:border-white/[0.06] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse" />
-            <span className="text-sm font-medium text-yellow-400">Editing</span>
+            <span className="text-sm font-medium text-yellow-600 dark:text-yellow-400">Editing</span>
           </div>
           <span className="text-[11px] text-gray-600 font-mono">{item._id}</span>
         </div>
         <textarea
-          className="w-full min-h-[320px] bg-transparent text-gray-300 p-5 font-mono text-[13px] leading-relaxed focus:outline-none resize-y"
+          className="w-full min-h-[320px] bg-transparent text-gray-700 dark:text-gray-300 p-5 font-mono text-[13px] leading-relaxed focus:outline-none resize-y"
           value={formData}
           onChange={(e) => setFormData(e.target.value)}
           spellCheck={false}
         />
-        <div className="p-4 border-t border-white/[0.06] flex items-center gap-2 justify-end bg-white/[0.01]">
+        <div className="p-4 border-t border-gray-200 dark:border-white/[0.06] flex items-center gap-2 justify-end bg-gray-50 dark:bg-white/[0.01]">
           <button
             onClick={() => setIsEditing(false)}
-            className="px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all cursor-pointer"
+            className="px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/[0.04] transition-all cursor-pointer"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-5 py-2 text-sm bg-blue-500/20 text-blue-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-blue-500/30 hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
+            className="px-5 py-2 text-sm bg-blue-50 dark:bg-blue-500/20 text-blue-600 dark:text-blue-200 border border-blue-200 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-blue-100 dark:hover:bg-blue-500/30 hover:border-blue-300 dark:hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
           >
             {saving ? "Saving..." : "Save Changes"}
           </button>
@@ -318,22 +318,22 @@ function AdminItem({
   const subtitle = item.description || item.body || item.href || item.date || "";
 
   return (
-    <div className="group rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200 p-4 flex items-center gap-4">
+    <div className="group rounded-xl border border-gray-200 dark:border-white/[0.06] bg-gray-50 dark:bg-white/[0.02] hover:bg-gray-100 dark:hover:bg-white/[0.04] hover:border-gray-300 dark:hover:border-white/[0.1] transition-all duration-200 p-4 flex items-center gap-4">
       {/* Order badge */}
-      <div className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0">
+      <div className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/[0.04] flex items-center justify-center shrink-0">
         <span className="text-xs text-gray-500 font-mono">{index + 1}</span>
       </div>
 
       {/* Thumbnail for projects */}
       {type === "projects" && item.image && (
-        <div className="w-12 h-12 rounded-lg overflow-hidden bg-white/[0.04] shrink-0 hidden sm:block">
+        <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 dark:bg-white/[0.04] shrink-0 hidden sm:block">
           <img src={item.image} alt={title} className="w-full h-full object-cover" />
         </div>
       )}
 
       {/* Info */}
       <div className="flex-1 min-w-0">
-        <p className="font-semibold text-sm text-white truncate">{title}</p>
+        <p className="font-semibold text-sm text-gray-900 dark:text-white truncate">{title}</p>
         <p className="text-xs text-gray-500 truncate mt-0.5">{subtitle}</p>
       </div>
 
@@ -341,7 +341,7 @@ function AdminItem({
       <div className="flex items-center gap-1.5 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity">
         <button
           onClick={openEditor}
-          className="p-2 rounded-lg hover:bg-white/[0.06] transition-all cursor-pointer text-gray-400 hover:text-blue-400"
+          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-all cursor-pointer text-gray-400 hover:text-blue-400"
           title="Edit"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -350,7 +350,7 @@ function AdminItem({
         </button>
         <button
           onClick={confirmDelete}
-          className="p-2 rounded-lg hover:bg-white/[0.06] transition-all cursor-pointer text-gray-400 hover:text-white"
+          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-all cursor-pointer text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-white"
           title="Delete"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -369,15 +369,15 @@ function AdminItem({
           />
           
           {/* Modal Content */}
-          <div className="relative bg-[#0a0a0a] border border-white/[0.1] rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-scale-up">
-            <div className="w-12 h-12 rounded-full bg-white/[0.05] flex items-center justify-center mb-5 mx-auto">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="relative bg-white dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/[0.1] rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-scale-up">
+            <div className="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/[0.05] flex items-center justify-center mb-5 mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </div>
             
-            <h3 className="text-xl font-semibold text-white text-center mb-2">Delete this {type.slice(0, -1)}?</h3>
-            <p className="text-sm text-gray-400 text-center mb-8">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white text-center mb-2">Delete this {type.slice(0, -1)}?</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 text-center mb-8">
               This action cannot be undone. &quot;{title}&quot; will be permanently removed.
             </p>
             
@@ -385,10 +385,10 @@ function AdminItem({
               <button
                 onClick={handleDelete}
                 disabled={deleting}
-                className="w-full py-3 bg-white text-black font-semibold rounded-xl hover:bg-gray-200 transition-colors cursor-pointer disabled:opacity-50 flex items-center justify-center"
+                className="w-full py-3 bg-red-500 dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:bg-red-600 dark:hover:bg-gray-200 transition-colors cursor-pointer disabled:opacity-50 flex items-center justify-center"
               >
                 {deleting ? (
-                  <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-5 w-5 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
@@ -399,7 +399,7 @@ function AdminItem({
               <button
                 onClick={() => setShowDeleteModal(false)}
                 disabled={deleting}
-                className="w-full py-3 bg-transparent text-gray-400 font-medium rounded-xl hover:text-white hover:bg-white/[0.04] transition-colors cursor-pointer disabled:opacity-50"
+                className="w-full py-3 bg-transparent text-gray-600 dark:text-gray-400 font-medium rounded-xl hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.04] transition-colors cursor-pointer disabled:opacity-50"
               >
                 Cancel
               </button>

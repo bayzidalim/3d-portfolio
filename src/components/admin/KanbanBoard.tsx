@@ -5,9 +5,9 @@ import type { Task } from "./TaskModal";
 
 // ─── Column config ──────────────────────────────────────
 const columns: { id: Task["status"]; title: string; accent: string; dotColor: string }[] = [
-  { id: "todo", title: "To Do", accent: "border-gray-500/20", dotColor: "bg-gray-400" },
-  { id: "in_progress", title: "In Progress", accent: "border-blue-500/20", dotColor: "bg-blue-400" },
-  { id: "done", title: "Done", accent: "border-green-500/20", dotColor: "bg-green-400" },
+  { id: "todo", title: "To Do", accent: "border-gray-200 dark:border-gray-500/20", dotColor: "bg-gray-400" },
+  { id: "in_progress", title: "In Progress", accent: "border-blue-200 dark:border-blue-500/20", dotColor: "bg-blue-400" },
+  { id: "done", title: "Done", accent: "border-green-200 dark:border-green-500/20", dotColor: "bg-green-400" },
 ];
 
 interface KanbanBoardProps {
@@ -85,7 +85,7 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+    <div className="flex overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0 gap-4 md:gap-5 md:grid md:grid-cols-3 md:overflow-visible">
       {columns.map((col) => {
         const colTasks = tasksByStatus[col.id] || [];
         const isOver = dragOverColumn === col.id;
@@ -96,24 +96,24 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
             onDragOver={(e) => handleDragOver(e, col.id)}
             onDragLeave={handleDragLeave}
             onDrop={(e) => handleDrop(e, col.id)}
-            className={`flex flex-col rounded-2xl border transition-all duration-200 ${
+            className={`flex flex-col rounded-2xl border transition-all duration-200 min-w-[85vw] snap-center md:min-w-0 ${
               isOver
-                ? "border-indigo-500/30 bg-indigo-500/[0.03] ring-1 ring-indigo-500/10"
-                : "border-white/[0.06] bg-white/[0.01]"
+                ? "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/[0.03] ring-1 ring-indigo-500/10"
+                : "border-gray-200 dark:border-white/[0.06] bg-gray-50/50 dark:bg-white/[0.01]"
             }`}
           >
             {/* Column header */}
             <div className={`px-4 py-3 border-b ${col.accent} flex items-center justify-between`}>
               <div className="flex items-center gap-2.5">
                 <span className={`w-2 h-2 rounded-full ${col.dotColor}`} />
-                <span className="text-sm font-semibold text-white">{col.title}</span>
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/[0.06] text-gray-500">
+                <span className="text-sm font-semibold text-gray-900 dark:text-white">{col.title}</span>
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-gray-200 dark:bg-white/[0.06] text-gray-600 dark:text-gray-500">
                   {colTasks.length}
                 </span>
               </div>
               <button
                 onClick={() => onTaskAdd(col.id)}
-                className="p-1 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+                className="p-1 rounded-lg text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/[0.06] transition-all cursor-pointer"
                 title={`Add task to ${col.title}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -126,7 +126,7 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
             <div className="flex-1 p-3 space-y-2.5 min-h-[120px]">
               {colTasks.length === 0 ? (
                 <div className={`flex items-center justify-center h-20 rounded-xl border-2 border-dashed transition-colors ${
-                  isOver ? "border-indigo-500/30 text-indigo-400" : "border-white/[0.04] text-gray-600"
+                  isOver ? "border-indigo-500/30 text-indigo-500 dark:text-indigo-400" : "border-gray-200 dark:border-white/[0.04] text-gray-400 dark:text-gray-600"
                 }`}>
                   <p className="text-xs">{isOver ? "Drop here" : "No tasks"}</p>
                 </div>

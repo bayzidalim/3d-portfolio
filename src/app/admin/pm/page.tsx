@@ -51,9 +51,9 @@ function ProjectFormModal({
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <form onSubmit={handleSubmit} className="relative bg-[#0a0a1a] border border-white/[0.1] rounded-2xl w-full max-w-md shadow-2xl animate-scale-up overflow-hidden">
+      <form onSubmit={handleSubmit} className="relative bg-white dark:bg-[#0a0a1a] border border-gray-200 dark:border-white/[0.1] rounded-2xl w-full max-w-md shadow-2xl animate-scale-up overflow-hidden">
         <div className="p-5 pb-0">
-          <h3 className="text-lg font-semibold text-white">{isEditing ? "Edit Project" : "New Project"}</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{isEditing ? "Edit Project" : "New Project"}</h3>
         </div>
         <div className="p-5 space-y-4">
           {/* Title */}
@@ -65,7 +65,7 @@ function ProjectFormModal({
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="My awesome project"
-              className="w-full px-3.5 py-2.5 bg-white/[0.04] border border-white/[0.08] rounded-xl text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all"
+              className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/[0.04] border border-gray-200 dark:border-white/[0.08] rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all"
             />
           </div>
           {/* Description */}
@@ -76,7 +76,7 @@ function ProjectFormModal({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="A brief summary"
-              className="w-full px-3.5 py-2.5 bg-white/[0.04] border border-white/[0.08] rounded-xl text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all"
+              className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/[0.04] border border-gray-200 dark:border-white/[0.08] rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all"
             />
           </div>
           {/* Color */}
@@ -89,7 +89,7 @@ function ProjectFormModal({
                   type="button"
                   onClick={() => setColor(c)}
                   className={`w-8 h-8 rounded-lg border-2 transition-all cursor-pointer ${
-                    color === c ? "border-white scale-110" : "border-transparent hover:border-white/30"
+                    color === c ? "border-gray-900 dark:border-white scale-110" : "border-transparent hover:border-gray-400 dark:hover:border-white/30"
                   }`}
                   style={{ background: c }}
                 />
@@ -98,11 +98,11 @@ function ProjectFormModal({
           </div>
         </div>
         <div className="p-5 pt-0 flex items-center gap-2 justify-end">
-          <button type="button" onClick={onClose} className="px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all cursor-pointer">Cancel</button>
+          <button type="button" onClick={onClose} className="px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/[0.04] transition-all cursor-pointer">Cancel</button>
           <button
             type="submit"
             disabled={saving}
-            className="px-5 py-2 text-sm bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-indigo-500/30 hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
+            className="px-5 py-2 text-sm bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-200 border border-indigo-200 dark:border-white/10 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-500/30 hover:border-indigo-300 dark:hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
           >
             {saving ? "Saving..." : isEditing ? "Update" : "Create"}
           </button>
@@ -150,21 +150,21 @@ function DeleteModal({
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-[#0a0a0a] border border-white/[0.1] rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-scale-up">
-        <div className="w-12 h-12 rounded-full bg-white/[0.05] flex items-center justify-center mb-5 mx-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <div className="relative bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/[0.1] rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-scale-up">
+        <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-white/[0.05] flex items-center justify-center mb-5 mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-red-500 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-white text-center mb-2">Delete &quot;{project.title}&quot;?</h3>
-        <p className="text-sm text-gray-400 text-center mb-8">This will permanently delete the project and all its tasks.</p>
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white text-center mb-2">Delete &quot;{project.title}&quot;?</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-8">This will permanently delete the project and all its tasks.</p>
         <div className="flex flex-col gap-3">
-          <button onClick={handleDelete} disabled={deleting} className="w-full py-3 bg-white text-black font-semibold rounded-xl hover:bg-gray-200 transition-colors cursor-pointer disabled:opacity-50 flex items-center justify-center">
+          <button onClick={handleDelete} disabled={deleting} className="w-full py-3 bg-red-500 dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:bg-red-600 dark:hover:bg-gray-200 transition-colors cursor-pointer disabled:opacity-50 flex items-center justify-center">
             {deleting ? (
               <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
             ) : "Delete Permanently"}
           </button>
-          <button onClick={onClose} disabled={deleting} className="w-full py-3 bg-transparent text-gray-400 font-medium rounded-xl hover:text-white hover:bg-white/[0.04] transition-colors cursor-pointer disabled:opacity-50">Cancel</button>
+          <button onClick={onClose} disabled={deleting} className="w-full py-3 bg-transparent text-gray-600 dark:text-gray-400 font-medium rounded-xl hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.04] transition-colors cursor-pointer disabled:opacity-50">Cancel</button>
         </div>
       </div>
       <style jsx>{`
@@ -245,14 +245,14 @@ export default function PMDashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold">Projects</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Projects</h1>
           <p className="text-gray-500 text-sm mt-1">
             {projects.length} {projects.length === 1 ? "project" : "projects"} total
           </p>
         </div>
         <button
           onClick={() => setFormProject("new")}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md hover:bg-indigo-500/30 hover:border-white/20 text-sm font-medium rounded-xl transition-all duration-200 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-200 border border-indigo-200 dark:border-white/10 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md hover:bg-indigo-100 dark:hover:bg-indigo-500/30 hover:border-indigo-300 dark:hover:border-white/20 text-sm font-medium rounded-xl transition-all duration-200 cursor-pointer"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -265,7 +265,7 @@ export default function PMDashboard() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-40 rounded-2xl bg-white/[0.02] animate-pulse border border-white/[0.04]" />
+            <div key={i} className="h-40 rounded-2xl bg-gray-100 dark:bg-white/[0.02] animate-pulse border border-gray-200 dark:border-white/[0.04]" />
           ))}
         </div>
       ) : projects.length === 0 ? (

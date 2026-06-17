@@ -55,6 +55,112 @@ body {
   overflow-x: hidden;
 }
 
+.admin-theme-root {
+  --admin-bg: #030412;
+  --admin-panel: rgba(255, 255, 255, 0.02);
+  --admin-panel-strong: #0a0a1a;
+  --admin-border: rgba(255, 255, 255, 0.08);
+  --admin-border-strong: rgba(255, 255, 255, 0.12);
+  --admin-text: #ffffff;
+  --admin-muted: #9ca3af;
+  --admin-subtle: #6b7280;
+  --admin-faint: #4b5563;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  color-scheme: dark;
+}
+
+.admin-theme-root[data-admin-theme="light"] {
+  --admin-bg: #f6f8fb;
+  --admin-panel: rgba(255, 255, 255, 0.82);
+  --admin-panel-strong: #ffffff;
+  --admin-border: rgba(15, 23, 42, 0.1);
+  --admin-border-strong: rgba(15, 23, 42, 0.16);
+  --admin-text: #111827;
+  --admin-muted: #4b5563;
+  --admin-subtle: #6b7280;
+  --admin-faint: #9ca3af;
+  color-scheme: light;
+}
+
+.admin-theme-root :where(input, textarea, select) {
+  color-scheme: inherit;
+}
+
+.admin-theme-root :where([class~="bg-[#030412]"]) {
+  background-color: var(--admin-bg);
+}
+
+.admin-theme-root :where([class~="bg-[#0a0a0a]"], [class~="bg-[#0a0a1a]"]) {
+  background-color: var(--admin-panel-strong);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="bg-white/[0.01]"], [class~="bg-white/[0.02]"], [class~="bg-white/[0.03]"], [class~="bg-white/[0.04]"], [class~="bg-white/[0.05]"]) {
+  background-color: var(--admin-panel);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="hover:bg-white/[0.02]"]:hover, [class~="hover:bg-white/[0.03]"]:hover, [class~="hover:bg-white/[0.04]"]:hover, [class~="hover:bg-white/[0.06]"]:hover, [class~="hover:bg-white/[0.07]"]:hover) {
+  background-color: rgba(15, 23, 42, 0.06);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="border-white/[0.04]"], [class~="border-white/[0.06]"], [class~="border-white/[0.08]"], [class~="border-white/[0.1]"], [class~="border-white/10"]) {
+  border-color: var(--admin-border);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="hover:border-white/[0.08]"]:hover, [class~="hover:border-white/[0.1]"]:hover, [class~="hover:border-white/20"]:hover) {
+  border-color: var(--admin-border-strong);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-white"], [class~="hover:text-white"]:hover) {
+  color: var(--admin-text);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-gray-300"], [class~="text-gray-400"], [class~="hover:text-gray-300"]:hover) {
+  color: var(--admin-muted);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-gray-500"], [class~="text-gray-600"], [class~="text-gray-700"]) {
+  color: var(--admin-subtle);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="placeholder:text-gray-600"])::placeholder {
+  color: var(--admin-faint);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="bg-white/[0.06]"]) {
+  background-color: rgba(15, 23, 42, 0.08);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="border-dashed"]) {
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-blue-200"]) {
+  color: #1d4ed8;
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-indigo-200"], [class~="text-indigo-300"]) {
+  color: #4338ca;
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-purple-200"]) {
+  color: #7e22ce;
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-amber-200"]) {
+  color: #b45309;
+}
+
+.admin-theme-root[data-admin-theme="light"] :where([class~="text-green-200"]) {
+  color: #15803d;
+}
+
+.admin-theme-root[data-admin-theme="light"] .admin-theme-toggle {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: var(--admin-border);
+  color: var(--admin-muted);
+}
+
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
 }

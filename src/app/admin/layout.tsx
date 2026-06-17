@@ -3,6 +3,8 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
 import Sidebar from "@/components/admin/Sidebar";
+import { AdminThemeProvider } from "@/components/admin/AdminThemeProvider";
+import ThemeToggle from "@/components/admin/ThemeToggle";
 
 // ─── Tab config for mobile nav ──────────────────────────
 const tabGlassActive: Record<string, string> = {
@@ -47,7 +49,10 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
             </div>
             <span className="font-bold text-sm">Admin Panel</span>
           </div>
-          <button onClick={handleLogout} className="text-xs text-gray-500 hover:text-red-400 cursor-pointer">Sign Out</button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button onClick={handleLogout} className="text-xs text-gray-500 hover:text-red-400 cursor-pointer">Sign Out</button>
+          </div>
         </div>
 
         {/* Mobile tabs – only show for portfolio routes */}
@@ -121,12 +126,14 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-[#030412] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-blue-500/30 border-t-blue-400 rounded-full animate-spin" />
-      </div>
-    }>
-      <AdminLayoutInner>{children}</AdminLayoutInner>
-    </Suspense>
+    <AdminThemeProvider>
+      <Suspense fallback={
+        <div className="min-h-screen bg-[#030412] flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-blue-500/30 border-t-blue-400 rounded-full animate-spin" />
+        </div>
+      }>
+        <AdminLayoutInner>{children}</AdminLayoutInner>
+      </Suspense>
+    </AdminThemeProvider>
   );
 }

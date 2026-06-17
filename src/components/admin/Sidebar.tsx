@@ -52,10 +52,10 @@ const portfolioTabs = [
 ] as const;
 
 const tabActiveStyles: Record<string, string> = {
-  projects: "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-200 border border-blue-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  experiences: "bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-200 border border-purple-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  reviews: "bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-200 border border-amber-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
-  socials: "bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-200 border border-green-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  projects: "bg-blue-500/20 text-blue-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  experiences: "bg-purple-500/20 text-purple-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  reviews: "bg-amber-500/20 text-amber-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
+  socials: "bg-green-500/20 text-green-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md",
 };
 
 // ─── Types ──────────────────────────────────────────────
@@ -64,13 +64,8 @@ interface PMProject {
   title: string;
 }
 
-interface SidebarProps {
-  mobileMenuOpen?: boolean;
-  setMobileMenuOpen?: (open: boolean) => void;
-}
-
 // ─── Sidebar Component ──────────────────────────────────
-export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: SidebarProps) {
+export default function Sidebar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -112,43 +107,24 @@ export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: S
     if (isPMActive) setPMOpen(true);
   }, [isPortfolioActive, isPMActive]);
 
-  const handleLogout = async () => {
-    await fetch('/api/auth/logout', { method: 'POST' });
+  const handleLogout = () => {
+    document.cookie = "admin_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie = "admin_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/admin";
     window.location.href = "/admin/login";
   };
 
   return (
-    <>
-      {/* Mobile Overlay */}
-      {mobileMenuOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[45]"
-          onClick={() => setMobileMenuOpen?.(false)}
-        />
-      )}
-
-      {/* Sidebar Container */}
-      <aside className={`fixed top-0 left-0 h-full w-64 bg-gray-50 dark:bg-[#030412] border-r border-gray-200 dark:border-white/[0.06] p-6 flex flex-col z-[50] transition-transform duration-300 ${
-        mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-      }`}>
-        {/* ── Brand ─────────────────────────────────────── */}
-        <div className="flex items-center justify-between mb-10">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-200 border border-blue-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md flex items-center justify-center">
-              <span className="font-bold text-lg">B</span>
-            </div>
-            <div>
-              <p className="font-bold text-sm text-gray-900 dark:text-white">Bayzid Alim</p>
-              <p className="text-[11px] text-gray-500">Admin Panel</p>
-            </div>
-          </div>
-          <button 
-            onClick={() => setMobileMenuOpen?.(false)} 
-            className="lg:hidden p-1.5 text-gray-500 hover:bg-gray-200 dark:hover:bg-white/10 rounded-lg transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
+    <aside className="fixed top-0 left-0 h-full w-64 bg-[#030412] border-r border-white/[0.06] p-6 flex flex-col z-40 max-lg:hidden">
+      {/* ── Brand ─────────────────────────────────────── */}
+      <div className="flex items-center gap-3 mb-10">
+        <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md flex items-center justify-center">
+          <span className="font-bold text-lg">B</span>
         </div>
+        <div>
+          <p className="font-bold text-sm text-white">Bayzid Alim</p>
+          <p className="text-[11px] text-gray-500">Admin Panel</p>
+        </div>
+      </div>
 
       {/* ── Navigation ────────────────────────────────── */}
       <nav className="flex-1 space-y-4 overflow-y-auto">
@@ -172,10 +148,10 @@ export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: S
                   <Link
                     key={key}
                     href={`/admin/portfolio?tab=${key}`}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-300 ease-out border ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors duration-200 border ${
                       isActive
                         ? `${tabActiveStyles[key].replace("border ", "")} font-medium`
-                        : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.04] hover:translate-x-1"
+                        : "border-transparent text-gray-400 hover:text-white hover:bg-white/[0.04]"
                     }`}
                   >
                     <Icon />
@@ -204,10 +180,10 @@ export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: S
               {/* All Projects */}
               <Link
                 href="/admin/pm"
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-300 ease-out border ${
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors duration-200 border ${
                   pathname === "/admin/pm"
-                    ? "bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-200 border-indigo-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md font-medium"
-                    : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.04] hover:translate-x-1"
+                    ? "bg-indigo-500/20 text-indigo-200 border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md font-medium"
+                    : "border-transparent text-gray-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
                 <IconPM />
@@ -226,10 +202,10 @@ export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: S
                     <Link
                       key={proj._id}
                       href={`/admin/pm/${proj._id}`}
-                      className={`w-full flex items-center gap-3 px-3 pl-6 py-2 rounded-xl text-sm transition-all duration-300 ease-out border ${
+                      className={`w-full flex items-center gap-3 px-3 pl-6 py-2 rounded-xl text-sm transition-colors duration-200 border ${
                         isActive
-                          ? "bg-violet-500/10 dark:bg-violet-500/20 text-violet-600 dark:text-violet-200 border-violet-500/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md font-medium"
-                          : "border-transparent text-gray-500 hover:text-gray-800 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/[0.03] hover:translate-x-1"
+                          ? "bg-violet-500/20 text-violet-200 border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md font-medium"
+                          : "border-transparent text-gray-500 hover:text-gray-300 hover:bg-white/[0.03]"
                       }`}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/40 shrink-0" />
@@ -246,7 +222,7 @@ export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: S
       {/* ── Logout ────────────────────────────────────── */}
       <button
         onClick={handleLogout}
-        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-500 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/[0.06] hover:translate-x-1 transition-all duration-300 ease-out cursor-pointer mt-auto"
+        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-500 hover:text-red-400 hover:bg-red-500/[0.06] transition-all duration-200 cursor-pointer mt-auto"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
@@ -254,6 +230,5 @@ export default function Sidebar({ mobileMenuOpen = false, setMobileMenuOpen }: S
         Sign Out
       </button>
     </aside>
-    </>
   );
 }

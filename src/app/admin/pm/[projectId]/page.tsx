@@ -153,11 +153,11 @@ export default function ProjectDetailPage() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="h-10 w-64 rounded-xl bg-gray-200 dark:bg-white/[0.02] animate-pulse" />
-        <div className="h-8 w-48 rounded-lg bg-gray-200 dark:bg-white/[0.02] animate-pulse" />
+        <div className="h-10 w-64 rounded-xl bg-white/[0.02] animate-pulse" />
+        <div className="h-8 w-48 rounded-lg bg-white/[0.02] animate-pulse" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-48 rounded-2xl bg-gray-100 dark:bg-white/[0.02] animate-pulse border border-gray-200 dark:border-white/[0.04]" />
+            <div key={i} className="h-48 rounded-2xl bg-white/[0.02] animate-pulse border border-white/[0.04]" />
           ))}
         </div>
       </div>
@@ -185,14 +185,14 @@ export default function ProjectDetailPage() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => router.push("/admin/pm")}
-            className="p-2 rounded-lg text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-all cursor-pointer"
+            className="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
           <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/[0.06]"
+            className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/[0.06]"
             style={{ background: `${project.color}20` }}
           >
             <span className="font-bold text-xs" style={{ color: project.color }}>
@@ -200,7 +200,7 @@ export default function ProjectDetailPage() {
             </span>
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{project.title}</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-white">{project.title}</h1>
             {project.description && (
               <p className="text-xs text-gray-500 mt-0.5">{project.description}</p>
             )}
@@ -219,7 +219,7 @@ export default function ProjectDetailPage() {
           {activeView === "kanban" && (
             <button
               onClick={() => handleTaskAdd("todo")}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-200 border border-indigo-200 dark:border-white/10 text-xs font-medium rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-500/30 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/20 text-indigo-200 border border-white/10 text-xs font-medium rounded-xl hover:bg-indigo-500/30 transition-all cursor-pointer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

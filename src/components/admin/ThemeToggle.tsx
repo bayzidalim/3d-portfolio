@@ -10,7 +10,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="admin-theme-toggle inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-gray-400 transition-all hover:bg-white/[0.07] hover:text-white"
+      className="admin-theme-toggle inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-2.5 sm:px-3 py-2 text-xs font-medium text-gray-400 transition-all hover:bg-white/[0.07] hover:text-white"
       title={isLight ? "Switch to dark mode" : "Switch to light mode"}
       aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
     >

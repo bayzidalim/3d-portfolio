@@ -49,9 +49,9 @@ function ProjectFormModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <form onSubmit={handleSubmit} className="relative bg-[#0a0a1a] border border-white/[0.1] rounded-2xl w-full max-w-md shadow-2xl animate-scale-up overflow-hidden">
+      <form onSubmit={handleSubmit} className="relative max-h-[92vh] w-full max-w-md overflow-y-auto rounded-t-2xl border border-white/[0.1] bg-[#0a0a1a] shadow-2xl animate-scale-up sm:rounded-2xl">
         <div className="p-5 pb-0">
           <h3 className="text-lg font-semibold text-white">{isEditing ? "Edit Project" : "New Project"}</h3>
         </div>
@@ -97,12 +97,12 @@ function ProjectFormModal({
             </div>
           </div>
         </div>
-        <div className="p-5 pt-0 flex items-center gap-2 justify-end">
-          <button type="button" onClick={onClose} className="px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all cursor-pointer">Cancel</button>
+        <div className="p-5 pt-0 flex flex-col-reverse items-stretch gap-2 sm:flex-row sm:items-center sm:justify-end">
+          <button type="button" onClick={onClose} className="min-h-11 px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all cursor-pointer">Cancel</button>
           <button
             type="submit"
             disabled={saving}
-            className="px-5 py-2 text-sm bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-indigo-500/30 hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
+            className="min-h-11 px-5 py-2 text-sm bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-indigo-500/30 hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
           >
             {saving ? "Saving..." : isEditing ? "Update" : "Create"}
           </button>
@@ -148,9 +148,9 @@ function DeleteModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-[#0a0a0a] border border-white/[0.1] rounded-2xl p-6 md:p-8 w-full max-w-sm shadow-2xl animate-scale-up">
+      <div className="relative w-full max-w-sm rounded-t-2xl border border-white/[0.1] bg-[#0a0a0a] p-5 shadow-2xl animate-scale-up sm:rounded-2xl sm:p-6 md:p-8">
         <div className="w-12 h-12 rounded-full bg-white/[0.05] flex items-center justify-center mb-5 mx-auto">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
@@ -243,16 +243,16 @@ export default function PMDashboard() {
       )}
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-8">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold">Projects</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">Projects</h1>
           <p className="text-gray-500 text-sm mt-1">
             {projects.length} {projects.length === 1 ? "project" : "projects"} total
           </p>
         </div>
         <button
           onClick={() => setFormProject("new")}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md hover:bg-indigo-500/30 hover:border-white/20 text-sm font-medium rounded-xl transition-all duration-200 cursor-pointer"
+          className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-2.5 bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md hover:bg-indigo-500/30 hover:border-white/20 text-sm font-medium rounded-xl transition-all duration-200 cursor-pointer sm:w-auto"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -263,13 +263,13 @@ export default function PMDashboard() {
 
       {/* Loading */}
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
           {[1, 2, 3].map((i) => (
             <div key={i} className="h-40 rounded-2xl bg-white/[0.02] animate-pulse border border-white/[0.04]" />
           ))}
         </div>
       ) : projects.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-24 text-center">
+        <div className="flex flex-col items-center justify-center py-16 sm:py-24 text-center">
           <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
@@ -279,7 +279,7 @@ export default function PMDashboard() {
           <p className="text-gray-600 text-xs mt-1">Create your first project to start managing tasks</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard
               key={project._id}

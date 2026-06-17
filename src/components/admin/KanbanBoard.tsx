@@ -85,7 +85,7 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-5">
       {columns.map((col) => {
         const colTasks = tasksByStatus[col.id] || [];
         const isOver = dragOverColumn === col.id;
@@ -103,7 +103,7 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
             }`}
           >
             {/* Column header */}
-            <div className={`px-4 py-3 border-b ${col.accent} flex items-center justify-between`}>
+            <div className={`px-3 py-3 sm:px-4 border-b ${col.accent} flex items-center justify-between`}>
               <div className="flex items-center gap-2.5">
                 <span className={`w-2 h-2 rounded-full ${col.dotColor}`} />
                 <span className="text-sm font-semibold text-white">{col.title}</span>
@@ -113,7 +113,7 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
               </div>
               <button
                 onClick={() => onTaskAdd(col.id)}
-                className="p-1 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+                className="min-h-9 min-w-9 p-1 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
                 title={`Add task to ${col.title}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -123,7 +123,7 @@ export default function KanbanBoard({ tasks, onTaskEdit, onTaskAdd, onReorder }:
             </div>
 
             {/* Cards */}
-            <div className="flex-1 p-3 space-y-2.5 min-h-[120px]">
+            <div className="flex-1 p-2.5 sm:p-3 space-y-2.5 min-h-[96px] sm:min-h-[120px]">
               {colTasks.length === 0 ? (
                 <div className={`flex items-center justify-center h-20 rounded-xl border-2 border-dashed transition-colors ${
                   isOver ? "border-indigo-500/30 text-indigo-400" : "border-white/[0.04] text-gray-600"

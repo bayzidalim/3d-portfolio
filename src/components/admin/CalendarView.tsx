@@ -86,9 +86,9 @@ export default function CalendarView({ tasks, onTaskEdit, onTaskAdd }: CalendarV
   return (
     <div className="space-y-4">
       {/* Navigation */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h3 className="text-lg font-bold text-white">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center justify-between gap-3 sm:justify-start">
+          <h3 className="text-base font-bold text-white sm:text-lg">
             {MONTHS[month]} {year}
           </h3>
           <button
@@ -98,10 +98,10 @@ export default function CalendarView({ tasks, onTaskEdit, onTaskAdd }: CalendarV
             Today
           </button>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-end gap-1">
           <button
             onClick={goToPrev}
-            className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+            className="min-h-10 min-w-10 p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -109,7 +109,7 @@ export default function CalendarView({ tasks, onTaskEdit, onTaskAdd }: CalendarV
           </button>
           <button
             onClick={goToNext}
-            className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+            className="min-h-10 min-w-10 p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -119,7 +119,8 @@ export default function CalendarView({ tasks, onTaskEdit, onTaskAdd }: CalendarV
       </div>
 
       {/* Calendar grid */}
-      <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-white/[0.01]">
+      <div className="overflow-x-auto rounded-2xl border border-white/[0.06] bg-white/[0.01]">
+        <div className="min-w-[640px]">
         {/* Weekday headers */}
         <div className="grid grid-cols-7 border-b border-white/[0.06]">
           {WEEKDAYS.map((day) => (
@@ -198,11 +199,12 @@ export default function CalendarView({ tasks, onTaskEdit, onTaskAdd }: CalendarV
             );
           })}
         </div>
+        </div>
       </div>
 
       {/* Unscheduled tasks */}
       {unscheduled.length > 0 && (
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.01] p-4">
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.01] p-3 sm:p-4">
           <div className="flex items-center gap-2 mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -214,7 +216,7 @@ export default function CalendarView({ tasks, onTaskEdit, onTaskAdd }: CalendarV
               <button
                 key={task._id}
                 onClick={() => onTaskEdit(task)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-white/[0.06] bg-white/[0.03] px-2.5 py-1 text-xs text-gray-400 transition-all hover:bg-white/[0.06] hover:text-white cursor-pointer"
               >
                 <span className={`w-1.5 h-1.5 rounded-full ${priorityDot[task.priority]}`} />
                 {task.title}

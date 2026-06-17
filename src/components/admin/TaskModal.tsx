@@ -112,7 +112,7 @@ export default function TaskModal({ task, projectId, onClose, onSave, onToast }:
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -122,7 +122,7 @@ export default function TaskModal({ task, projectId, onClose, onSave, onToast }:
       {/* Modal */}
       <form
         onSubmit={handleSubmit}
-        className="relative bg-[#0a0a1a] border border-white/[0.1] rounded-2xl w-full max-w-md shadow-2xl animate-scale-up overflow-hidden"
+        className="relative max-h-[92vh] w-full max-w-md overflow-y-auto rounded-t-2xl border border-white/[0.1] bg-[#0a0a1a] shadow-2xl animate-scale-up sm:rounded-2xl"
       >
         {/* Header */}
         <div className="p-5 pb-0">
@@ -152,13 +152,13 @@ export default function TaskModal({ task, projectId, onClose, onSave, onToast }:
           {/* Status */}
           <div>
             <label className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold mb-1.5 block">Status</label>
-            <div className="flex gap-2">
+            <div className="grid grid-cols-3 gap-2">
               {statusOptions.map((opt) => (
                 <button
                   key={opt.value}
                   type="button"
                   onClick={() => setStatus(opt.value)}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+                  className={`min-h-10 px-2 py-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
                     status === opt.value
                       ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/30"
                       : "bg-white/[0.02] text-gray-500 border-white/[0.06] hover:bg-white/[0.04]"
@@ -173,13 +173,13 @@ export default function TaskModal({ task, projectId, onClose, onSave, onToast }:
           {/* Priority */}
           <div>
             <label className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold mb-1.5 block">Priority</label>
-            <div className="flex gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {priorityOptions.map((opt) => (
                 <button
                   key={opt.value}
                   type="button"
                   onClick={() => setPriority(opt.value)}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+                  className={`min-h-10 px-2 py-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
                     priority === opt.value
                       ? opt.color
                       : "bg-white/[0.02] text-gray-500 border-white/[0.06] hover:bg-white/[0.04]"
@@ -204,31 +204,31 @@ export default function TaskModal({ task, projectId, onClose, onSave, onToast }:
         </div>
 
         {/* Footer */}
-        <div className="p-5 pt-0 flex items-center gap-2 justify-between">
-          <div>
+        <div className="p-5 pt-0 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="order-2 sm:order-none">
             {isEditing && (
               <button
                 type="button"
                 onClick={handleDelete}
                 disabled={saving}
-                className="px-4 py-2 text-sm text-red-400/70 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all cursor-pointer disabled:opacity-50"
+                className="min-h-11 w-full px-4 py-2 text-sm text-red-400/70 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all cursor-pointer disabled:opacity-50 sm:w-auto"
               >
                 Delete
               </button>
             )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col-reverse gap-2 sm:flex-row sm:items-center">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all cursor-pointer"
+              className="min-h-11 px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 text-sm bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-indigo-500/30 hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
+              className="min-h-11 px-5 py-2 text-sm bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md rounded-lg hover:bg-indigo-500/30 hover:border-white/20 transition-all cursor-pointer disabled:opacity-50 font-medium"
             >
               {saving ? "Saving..." : isEditing ? "Update" : "Create"}
             </button>

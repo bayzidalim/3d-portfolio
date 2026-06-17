@@ -55,7 +55,7 @@ export default function KanbanCard({ task, onEdit }: KanbanCardProps) {
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onClick={() => onEdit(task)}
-      className={`group p-3.5 rounded-xl border transition-all duration-200 cursor-grab active:cursor-grabbing ${
+      className={`group rounded-xl border p-3 sm:p-3.5 transition-all duration-200 cursor-grab active:cursor-grabbing ${
         isDragging
           ? "border-indigo-500/40 bg-indigo-500/10 ring-2 ring-indigo-500/20 scale-[1.02]"
           : "border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1]"

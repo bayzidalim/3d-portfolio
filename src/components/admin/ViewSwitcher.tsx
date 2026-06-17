@@ -39,19 +39,19 @@ interface ViewSwitcherProps {
 
 export default function ViewSwitcher({ activeView, onViewChange }: ViewSwitcherProps) {
   return (
-    <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+    <div className="grid w-full grid-cols-3 gap-1 rounded-xl border border-white/[0.06] bg-white/[0.03] p-1 sm:inline-flex sm:w-auto sm:items-center">
       {views.map((view) => (
         <button
           key={view.id}
           onClick={() => onViewChange(view.id)}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer ${
+          className={`flex min-h-10 items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-[11px] font-medium transition-all duration-200 cursor-pointer sm:gap-2 sm:px-3.5 sm:text-xs ${
             activeView === view.id
               ? "bg-indigo-500/20 text-indigo-200 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md"
               : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04] border border-transparent"
           }`}
         >
           {view.icon}
-          <span className="hidden sm:inline">{view.label}</span>
+          <span>{view.label}</span>
         </button>
       ))}
     </div>

@@ -25,7 +25,7 @@ export default function ProjectCard({ project, taskStats, onEdit, onDelete }: Pr
   return (
     <Link
       href={`/admin/pm/${project._id}`}
-      className="group block rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200 p-5 relative overflow-hidden"
+      className="group block rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200 p-4 sm:p-5 relative overflow-hidden"
     >
       {/* Color accent bar */}
       <div
@@ -35,7 +35,7 @@ export default function ProjectCard({ project, taskStats, onEdit, onDelete }: Pr
 
       {/* Header */}
       <div className="flex items-start justify-between mb-3 mt-1">
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex min-w-0 items-center gap-3">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border border-white/[0.06]"
             style={{ background: `${project.color}20` }}
@@ -53,10 +53,10 @@ export default function ProjectCard({ project, taskStats, onEdit, onDelete }: Pr
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+        <div className="flex shrink-0 items-center gap-1 opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
           <button
             onClick={(e) => { e.preventDefault(); onEdit(project); }}
-            className="p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+            className="min-h-10 min-w-10 rounded-lg p-2 text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer sm:min-h-0 sm:min-w-0 sm:p-1.5"
             title="Edit project"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -65,7 +65,7 @@ export default function ProjectCard({ project, taskStats, onEdit, onDelete }: Pr
           </button>
           <button
             onClick={(e) => { e.preventDefault(); onDelete(project); }}
-            className="p-1.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-red-500/10 transition-all cursor-pointer"
+            className="min-h-10 min-w-10 rounded-lg p-2 text-gray-500 hover:text-red-400 hover:bg-red-500/10 transition-all cursor-pointer sm:min-h-0 sm:min-w-0 sm:p-1.5"
             title="Delete project"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

@@ -170,7 +170,7 @@ export default function ProjectDetailPage() {
     <>
       {/* Toast */}
       {toast && (
-        <div className={`fixed top-6 right-6 z-50 px-5 py-3 rounded-xl text-sm font-medium shadow-2xl backdrop-blur-xl border transition-all duration-300 animate-slide-in ${
+        <div className={`fixed left-3 right-3 top-20 z-50 px-4 py-3 text-center sm:left-auto sm:right-6 sm:top-6 sm:text-left sm:px-5 rounded-xl text-sm font-medium shadow-2xl backdrop-blur-xl border transition-all duration-300 animate-slide-in ${
           toast.type === "success"
             ? "bg-green-500/10 border-green-500/20 text-green-400"
             : "bg-red-500/10 border-red-500/20 text-red-400"
@@ -180,12 +180,12 @@ export default function ProjectDetailPage() {
       )}
 
       {/* Header */}
-      <div className="flex flex-col gap-4 mb-6">
+      <div className="flex flex-col gap-4 mb-5 sm:mb-6">
         {/* Breadcrumb + title */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <button
             onClick={() => router.push("/admin/pm")}
-            className="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
+            className="min-h-10 min-w-10 p-2 rounded-lg text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -199,19 +199,19 @@ export default function ProjectDetailPage() {
               {project.title.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold text-white">{project.title}</h1>
+          <div className="min-w-0">
+            <h1 className="truncate text-lg font-bold text-white sm:text-xl md:text-2xl">{project.title}</h1>
             {project.description && (
-              <p className="text-xs text-gray-500 mt-0.5">{project.description}</p>
+              <p className="truncate text-xs text-gray-500 mt-0.5">{project.description}</p>
             )}
           </div>
         </div>
 
         {/* Controls row */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-4">
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             <ViewSwitcher activeView={activeView} onViewChange={setActiveView} />
-            <span className="text-xs text-gray-600 hidden sm:block">
+            <span className="text-xs text-gray-600">
               {doneTasks}/{totalTasks} completed
             </span>
           </div>
@@ -219,7 +219,7 @@ export default function ProjectDetailPage() {
           {activeView === "kanban" && (
             <button
               onClick={() => handleTaskAdd("todo")}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/20 text-indigo-200 border border-white/10 text-xs font-medium rounded-xl hover:bg-indigo-500/30 transition-all cursor-pointer"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-4 py-2 bg-indigo-500/20 text-indigo-200 border border-white/10 text-xs font-medium rounded-xl hover:bg-indigo-500/30 transition-all cursor-pointer sm:w-auto"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
